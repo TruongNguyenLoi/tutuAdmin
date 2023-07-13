@@ -25,8 +25,21 @@ toast.configure({
 const columns = [
   { id: "id", label: "ID", minWidth: 170, type: "number", isShow: true },
   { id: "name", label: "Màu", minWidth: 170, type: "text", isShow: true },
-  { id: "display", label: "Trạng thái", minWidth: 170, type: "number", isShow: false, format: (value) => value === 1 ? "Hiển thị" : "Không hiển thị", },
-  { id: "createdDate", label: "Ngày tạo", minWidth: 100, type: "text", isShow: false, },
+  {
+    id: "display",
+    label: "Trạng thái",
+    minWidth: 170,
+    type: "number",
+    isShow: false,
+    format: (value) => (value === 1 ? "Hiển thị" : "Không hiển thị"),
+  },
+  {
+    id: "createdDate",
+    label: "Ngày tạo",
+    minWidth: 100,
+    type: "text",
+    isShow: false,
+  },
 ];
 
 const useStyles = makeStyles({
@@ -62,18 +75,18 @@ const useStyles = makeStyles({
   },
   textField: {
     fontWeight: 500,
-    width: '75%'
+    width: "75%",
   },
   button: {
     marginLeft: 10,
     float: "right",
     height: "100%",
-    padding: '14px 21px',
+    padding: "14px 21px",
   },
   wrapper: {
-    display: 'flex',
-    alignItems: 'center'
-  }
+    display: "flex",
+    alignItems: "center",
+  },
 });
 
 export default function Colors() {
@@ -86,11 +99,11 @@ export default function Colors() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [name, setName] = useState("");
-  
+
   const handleChange = (e) => {
     setName(e.target.value);
   };
-   
+
   const setNewPage = (page) => {
     setPage(page);
   };
@@ -129,9 +142,7 @@ export default function Colors() {
                 getData();
                 toast.success("Cập nhật màu thành công");
               })
-              .catch((err) =>
-                toast.error("Cập nhật màu không thành công")
-              );
+              .catch((err) => toast.error("Cập nhật màu không thành công"));
           } else {
             saveItem(data)
               .then(() => {
@@ -163,7 +174,7 @@ export default function Colors() {
     getAll(searchObj)
       .then((res) => {
         setColors([...res.data.content]);
-        setTotalElements(res.data.totalElements)
+        setTotalElements(res.data.totalElements);
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -175,7 +186,7 @@ export default function Colors() {
 
   useEffect(() => {
     getData();
-    document.title = "E-Shop Admin | Brands";
+    document.title = "TUTU Admin | Brands";
   }, [getData]);
   return (
     <div>
@@ -186,8 +197,8 @@ export default function Colors() {
             <div className="card__body">
               <Grid container spacing={3}>
                 <Grid item md={6}>
-                <div className={classes.wrapper}>
-                     <TextField
+                  <div className={classes.wrapper}>
+                    <TextField
                       className={classes.textField}
                       id="outlined-basic"
                       label="Tên sản phẩm..."

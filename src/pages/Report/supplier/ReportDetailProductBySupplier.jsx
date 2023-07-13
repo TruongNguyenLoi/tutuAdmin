@@ -9,9 +9,7 @@ import {
 } from "@material-ui/core";
 import Loading from "components/loading/Loading";
 import TableReport from "components/table/TableReport";
-import {
-    reportDetailProductBySupplier,
-} from "services/ReportServices";
+import { reportDetailProductBySupplier } from "services/ReportServices";
 import useTimeout from "hooks/useTimeout";
 import { currency } from "utils/formatCurrency";
 import { Link, useHistory } from "react-router-dom";
@@ -95,7 +93,6 @@ const renderActions = (id) => {
   );
 };
 
-
 export default function ReportDetailProductBySupplier(props) {
   const [data, setData] = useState([]);
   const [totalElements, setTotalElements] = useState(0);
@@ -151,7 +148,7 @@ export default function ReportDetailProductBySupplier(props) {
   useTimeout(() => setLoading(false), loading ? 1000 : null);
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Payments";
+    document.title = "TUTU Admin | Payments";
     getData();
   }, [getData]);
   return (

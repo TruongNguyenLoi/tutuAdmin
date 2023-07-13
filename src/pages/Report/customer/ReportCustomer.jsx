@@ -62,7 +62,7 @@ const useStyles = makeStyles({
     float: "right",
     height: "100%",
     padding: "14px 21px",
-    width: 150
+    width: 150,
   },
   wrapper: {
     display: "flex",
@@ -135,7 +135,7 @@ export default function ReportCustomer() {
   useTimeout(() => setLoading(false), loading ? 1000 : null);
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Payments";
+    document.title = "TUTU Admin | Payments";
     getData();
   }, [getData]);
   return (

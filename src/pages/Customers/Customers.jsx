@@ -16,7 +16,7 @@ toast.configure({
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    overflowX: "auto"
+    overflowX: "auto",
   },
   container: {
     maxHeight: 440,
@@ -58,12 +58,43 @@ const useStyles = makeStyles({
 
 const columns = [
   { id: "id", label: "ID", minWidth: 50 },
-  { id: "username", label: "Tên tài khoản", minWidth: 100, type: 'text', isShow: true },
-  { id: "fullName", label: "Họ Tên", minWidth: 170, type: "text", isShow: true },
+  {
+    id: "username",
+    label: "Tên tài khoản",
+    minWidth: 100,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "fullName",
+    label: "Họ Tên",
+    minWidth: 170,
+    type: "text",
+    isShow: true,
+  },
   { id: "email", label: "Email", minWidth: 170, type: "text", isShow: true },
-  { id: "phone", label: "Số điện thoại", minWidth: 170, type: "text", isShow: true },
-  { id: "dateOfBirth", label: "Ngày sinh", minWidth: 170, type: "text", isShow: true },
-  { id: "display", label: "Trạng thái", minWidth: 170, type: "number", isShow: false, format: (value) => value === 1 ? "Active" : "Not Active", },
+  {
+    id: "phone",
+    label: "Số điện thoại",
+    minWidth: 170,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "dateOfBirth",
+    label: "Ngày sinh",
+    minWidth: 170,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "display",
+    label: "Trạng thái",
+    minWidth: 170,
+    type: "number",
+    isShow: false,
+    format: (value) => (value === 1 ? "Active" : "Not Active"),
+  },
 ];
 
 const Customer = (props) => {
@@ -79,7 +110,8 @@ const Customer = (props) => {
 
   const handleOpendialog = (id) => {
     if (id) {
-      services.getOneItem(id)
+      services
+        .getOneItem(id)
         .then((res) => setItem(res.data))
         .catch((err) => console.log(err));
     } else {
@@ -90,19 +122,21 @@ const Customer = (props) => {
 
   const handleSaveItem = (data) => {
     console.log(data);
-    services.updateItem(data)
+    services
+      .updateItem(data)
       .then(() => {
-        toast.success('Cập nhật thành công!')
+        toast.success("Cập nhật thành công!");
       })
-      .catch(err => toast.error('Cập nhật không thành công!'))
+      .catch((err) => toast.error("Cập nhật không thành công!"));
   };
 
   const getData = useCallback(() => {
     const searchObj = {};
     searchObj.limit = rowsPerPage;
     searchObj.page = page;
-    searchObj.keyword = '';
-    services.getAllCustomer(searchObj)
+    searchObj.keyword = "";
+    services
+      .getAllCustomer(searchObj)
       .then((res) => {
         setLoading(false);
         setCustomers([...res.data.content]);
@@ -113,7 +147,8 @@ const Customer = (props) => {
 
   const handleDeleteItem = (id) => {
     // console.log(id);
-    services.deleteItem(id)
+    services
+      .deleteItem(id)
       .then((res) => {
         toast.success(res.data.message);
         getData();
@@ -140,7 +175,7 @@ const Customer = (props) => {
   };
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Customer";
+    document.title = "TUTU Admin | Customer";
     getData();
   }, [getData]);
 

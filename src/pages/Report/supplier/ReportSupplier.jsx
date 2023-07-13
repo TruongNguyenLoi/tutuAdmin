@@ -9,9 +9,7 @@ import {
 } from "@material-ui/core";
 import Loading from "components/loading/Loading";
 import TableReport from "components/table/TableReport";
-import {
-  reportBySupplier
-} from "services/ReportServices";
+import { reportBySupplier } from "services/ReportServices";
 import useTimeout from "hooks/useTimeout";
 import { currency } from "utils/formatCurrency";
 import { Link, useHistory } from "react-router-dom";
@@ -26,7 +24,12 @@ const columns = [
     numberic: true,
     type: "number",
   },
-  { id: "supplier_name", label: "Tên nhà cung cấp", minWidth: 170, type: "text" },
+  {
+    id: "supplier_name",
+    label: "Tên nhà cung cấp",
+    minWidth: 170,
+    type: "text",
+  },
   { id: "supplier_code", label: "Code", minWidth: 170, type: "text" },
   {
     id: "quantity_sold",
@@ -134,11 +137,10 @@ export default function ReportSupplier(props) {
       .catch((err) => console.log(err));
   }, [last_date, page, rowsPerPage]);
 
-
   useTimeout(() => setLoading(false), loading ? 1000 : null);
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Payments";
+    document.title = "TUTU Admin | Payments";
     getData();
   }, [getData]);
   return (

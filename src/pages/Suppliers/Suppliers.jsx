@@ -7,13 +7,7 @@ import {
   checkCode,
   getAllSupplier,
 } from "services/SupplierServices";
-import {
-  Button,
-  Grid,
-  makeStyles,
-  Paper,
-  TextField,
-} from "@material-ui/core";
+import { Button, Grid, makeStyles, Paper, TextField } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import Loading from "components/loading/Loading";
 import { toast } from "react-toastify";
@@ -29,8 +23,8 @@ toast.configure({
   closeOnClick: true,
   pauseOnHover: true,
   draggable: true,
-  className: 'toast-container',
-  toastClassName: 'toast',
+  className: "toast-container",
+  toastClassName: "toast",
 });
 
 const columns = [
@@ -39,7 +33,13 @@ const columns = [
   { id: "code", label: "Mã NCC", minWidth: 170, type: "text", isShow: true },
   { id: "email", label: "Email", minWidth: 170, type: "text", isShow: true },
   { id: "phone", label: "SĐT", minWidth: 170, type: "text", isShow: true },
-  { id: "address", label: "Địa chỉ", minWidth: 170, type: "text", isShow: true },
+  {
+    id: "address",
+    label: "Địa chỉ",
+    minWidth: 170,
+    type: "text",
+    isShow: true,
+  },
 ];
 
 const useStyles = makeStyles({
@@ -75,18 +75,18 @@ const useStyles = makeStyles({
   },
   textField: {
     fontWeight: 500,
-    width: '75%'
+    width: "75%",
   },
   button: {
     marginLeft: 10,
     float: "right",
     height: "100%",
-    padding: '14px 21px',
+    padding: "14px 21px",
   },
   wrapper: {
-    display: 'flex',
-    alignItems: 'center'
-  }
+    display: "flex",
+    alignItems: "center",
+  },
 });
 
 export default function Suppliers() {
@@ -101,11 +101,11 @@ export default function Suppliers() {
   const [name, setName] = useState("");
   const params = new URLSearchParams(window.location.search);
   const display = params.get("display") ? params.get("display") : "";
-  
+
   const handleChange = (e) => {
     setName(e.target.value);
   };
-   
+
   const setNewPage = (page) => {
     setPage(page);
   };
@@ -144,9 +144,7 @@ export default function Suppliers() {
                 getData();
                 toast.success("Cập nhật NCC thành công");
               })
-              .catch((err) =>
-                toast.error("Cập nhật NCC không thành công")
-              );
+              .catch((err) => toast.error("Cập nhật NCC không thành công"));
           } else {
             saveItem(data)
               .then(() => {
@@ -179,7 +177,7 @@ export default function Suppliers() {
     getAllSupplier(searchObj)
       .then((res) => {
         setSuppliers([...res.data.content]);
-        setTotalElements(res.data.totalElements)
+        setTotalElements(res.data.totalElements);
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -191,7 +189,7 @@ export default function Suppliers() {
 
   useEffect(() => {
     getData();
-    document.title = "E-Shop Admin | Brands";
+    document.title = "TUTU Admin | Brands";
   }, [getData]);
   return (
     <div>
@@ -202,8 +200,8 @@ export default function Suppliers() {
             <div className="card__body">
               <Grid container spacing={3}>
                 <Grid item md={6}>
-                <div className={classes.wrapper}>
-                     <TextField
+                  <div className={classes.wrapper}>
+                    <TextField
                       className={classes.textField}
                       id="outlined-basic"
                       label="Tên nhà cung cấp..."

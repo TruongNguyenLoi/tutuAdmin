@@ -59,17 +59,35 @@ const useStyles = makeStyles({
 });
 
 const columns = [
-  { id: "id", label: "Mã đơn hàng", numeric: true, minWidth: 130, isShow: true },
+  {
+    id: "id",
+    label: "Mã đơn hàng",
+    numeric: true,
+    minWidth: 130,
+    isShow: true,
+  },
   { id: "order_code", label: "Mã đơn GHN", minWidth: 130, isShow: false },
   {
     id: "status_order_name",
     label: "Trạng thái",
     minWidth: 150,
     type: "text",
-    isShow: true
+    isShow: true,
   },
-  { id: "createdDate", label: "Ngày đặt", minWidth: 100, type: "text", isShow: true },
-  { id: "description", label: "Sản phẩm", minWidth: 200, type: "text", isShow: true },
+  {
+    id: "createdDate",
+    label: "Ngày đặt",
+    minWidth: 100,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "description",
+    label: "Sản phẩm",
+    minWidth: 200,
+    type: "text",
+    isShow: true,
+  },
   {
     id: "total_item",
     label: "Số lượng",
@@ -151,23 +169,26 @@ function OrderShipper(props) {
 
   const handleSubmitOrder = (order_code) => {
     const data = {
-      order_codes: [order_code]
-    }
+      order_codes: [order_code],
+    };
     if (isNaN(order_code)) {
       getTokenPrintBill(data)
         .then((res) => {
-          window.open(`https://dev-online-gateway.ghn.vn/a5/public-api/printA5?token=${res.data.data.token}`, '_blank')
+          window.open(
+            `https://dev-online-gateway.ghn.vn/a5/public-api/printA5?token=${res.data.data.token}`,
+            "_blank"
+          );
         })
         .catch(() =>
           toast.warning("Cập nhật trạng thái đơn hàng không thành công.")
         );
     } else {
-      toast.warning("Vui lòng xác nhận đơn hàng trước!")
+      toast.warning("Vui lòng xác nhận đơn hàng trước!");
     }
   };
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Orders";
+    document.title = "TUTU Admin | Orders";
     getData();
   }, [getData]);
 

@@ -112,7 +112,7 @@ const renderCommentBody = (item, index) => (
 
 export default function ReportBusinessPerformance(props) {
   useEffect(() => {
-    document.title = "E-Shop Admin | Dashboard";
+    document.title = "TUTU Admin | Dashboard";
   }, []);
 
   const classes = useStyles();

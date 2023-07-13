@@ -11,7 +11,7 @@ export default function Dashboard() {
     }, []);
     const [orders, setOrders] = useState([])
     const getDataOrder = useCallback(() => {
-        getQuantityOrderByStatus({ last_date: 0 })
+        getQuantityOrderByStatus({ last_date: 30 })
             .then(res => setOrders(res.data))
             .catch(err => console.log(err))
     }, [])

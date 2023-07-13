@@ -183,7 +183,7 @@ function Orders(props) {
   };
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Orders";
+    document.title = "Tutu Shop Admin | Orders";
     getData();
   }, [getData]);
 

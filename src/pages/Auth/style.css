@@ -16,7 +16,7 @@
 }
 
 .section__item {
-    background-color: var(--white-color);
+    /* background-color: var(--white-color); */
     padding: 10px 0;
 }
 
@@ -30,7 +30,7 @@
 
 .content-left h2 {
     font-size: 32px;
-    font-weight: 300;
+    font-weight: 800;
     color: #242424;
     margin-top: 0;
 }
@@ -39,7 +39,7 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 1.38;
-    color: #787878;
+    color: #100f0f;
     margin-top: 20px;
 }
 

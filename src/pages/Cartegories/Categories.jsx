@@ -1,8 +1,4 @@
-import {
-  Grid,
-  makeStyles,
-  Paper,
-} from "@material-ui/core";
+import { Grid, makeStyles, Paper } from "@material-ui/core";
 // import AddIcon from "@material-ui/icons/Add";
 import React, { useCallback, useEffect, useState } from "react";
 import Loading from "components/loading/Loading";
@@ -27,10 +23,35 @@ toast.configure({
 
 const columns = [
   { id: "id", label: "ID", minWidth: 170, type: "text", isShow: true },
-  { id: "name", label: "Tên danh mục", minWidth: 170, type: "text", isShow: true },
-  { id: "code", label: "Mã danh mục", minWidth: 100, type: "text", isShow: true },
-  { id: "display", label: "Trạng thái", minWidth: 170, type: "number", isShow: false, format: (value) => value === 1 ? "Hiển thị" : "Không hiển thị", },
-  { id: "createdDate", label: "Ngày tạo", minWidth: 100, type: "text", isShow: false, },
+  {
+    id: "name",
+    label: "Tên danh mục",
+    minWidth: 170,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "code",
+    label: "Mã danh mục",
+    minWidth: 100,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "display",
+    label: "Trạng thái",
+    minWidth: 170,
+    type: "number",
+    isShow: false,
+    format: (value) => (value === 1 ? "Hiển thị" : "Không hiển thị"),
+  },
+  {
+    id: "createdDate",
+    label: "Ngày tạo",
+    minWidth: 100,
+    type: "text",
+    isShow: false,
+  },
 ];
 
 const useStyles = makeStyles({
@@ -66,20 +87,19 @@ const useStyles = makeStyles({
   },
   textField: {
     fontWeight: 500,
-    width: '75%'
+    width: "75%",
   },
   button: {
     marginLeft: 10,
     float: "right",
     height: "100%",
-    padding: '14px 21px',
+    padding: "14px 21px",
   },
   wrapper: {
-    display: 'flex',
-    alignItems: 'center'
-  }
+    display: "flex",
+    alignItems: "center",
+  },
 });
-
 
 function Categories(props) {
   const classes = useStyles();
@@ -94,11 +114,11 @@ function Categories(props) {
   // const [name, setName] = useState("");
   const params = new URLSearchParams(window.location.search);
   const display = params.get("display") ? params.get("display") : "";
-  
+
   // const handleChange = (e) => {
   //   setName(e.target.value);
   // };
-   
+
   const setNewPage = (page) => {
     setPage(page);
   };
@@ -163,7 +183,6 @@ function Categories(props) {
       .catch((err) => toast.error("Cập nhật trạng thái không thành công"));
   };
 
-
   const getData = useCallback(() => {
     let searchObj = {};
     searchObj.limit = rowsPerPage;
@@ -173,7 +192,7 @@ function Categories(props) {
     getAllCategory(searchObj)
       .then((res) => {
         setCategories([...res.data.content]);
-        setTotalElements(res.data.totalElements)
+        setTotalElements(res.data.totalElements);
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -183,7 +202,7 @@ function Categories(props) {
     setOpendialog(false);
   };
   useEffect(() => {
-    document.title = "E-Shop Admin | Category"
+    document.title = "TUTU Admin | Category";
     getData();
   }, [getData]);
 
@@ -267,7 +286,6 @@ function Categories(props) {
         item={item}
         onSaveItem={handleSaveCategory}
       />
-    
     </div>
   );
 }

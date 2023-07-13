@@ -127,7 +127,9 @@ const Products = (props) => {
   const name = search_params.get("name") ? search_params.get("name") : "";
   const sku = search_params.get("sku") ? search_params.get("sku") : "";
   const brand = search_params.get("brand") ? search_params.get("brand") : "";
-  const display = search_params.get("display") ? search_params.get("display") : "";
+  const display = search_params.get("display")
+    ? search_params.get("display")
+    : "";
   const search = {
     name,
     sku,
@@ -199,7 +201,7 @@ const Products = (props) => {
   };
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Products";
+    document.title = "TUTU Admin | Products";
 
     getData();
   }, [getData, page, props.match.params.category, rowsPerPage]);
@@ -214,7 +216,6 @@ const Products = (props) => {
               <Grid container spacing={3}>
                 <Grid item md={12}>
                   <SearchForm params={search} />
-                  
                 </Grid>
                 <Grid item md={12}>
                   <Button

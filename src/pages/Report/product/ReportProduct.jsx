@@ -138,9 +138,7 @@ const renderStockActions = (id) => {
     <TableCell component="th" scope="row">
       <Button variant="outlined" color="primary">
         {/* <Link to={`/admin/inventory/update-import/${id}?productId=${id}`}> */}
-        <Link to={`/admin/inventory/view-detail/${id}`}>
-          Xem chi tiết
-        </Link>
+        <Link to={`/admin/inventory/view-detail/${id}`}>Xem chi tiết</Link>
       </Button>
     </TableCell>
   );
@@ -221,7 +219,7 @@ export default function ReportProduct(props) {
     reportProductOutOfStock(searchObj)
       .then((res) => {
         setOutStocks(res.data.content);
-        setTotalStockElements(res.data.totalElements)
+        setTotalStockElements(res.data.totalElements);
       })
       .catch((err) => console.log(err));
   }, [pageStock, rowsPerPageStock]);
@@ -229,7 +227,7 @@ export default function ReportProduct(props) {
   useTimeout(() => setLoading(false), loading ? 1000 : null);
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Payments";
+    document.title = "TUTU Admin | Payments";
     getData();
     getOutOfStock();
   }, [getData, getOutOfStock]);

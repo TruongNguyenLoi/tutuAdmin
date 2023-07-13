@@ -7,13 +7,7 @@ import {
   saveItem,
   checkCode,
 } from "services/PaymentServices";
-import {
-  Button,
-  Grid,
-  makeStyles,
-  Paper,
-  TextField,
-} from "@material-ui/core";
+import { Button, Grid, makeStyles, Paper, TextField } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import Loading from "components/loading/Loading";
 import { toast } from "react-toastify";
@@ -33,17 +27,30 @@ const columns = [
     label: "Tên phương thức thanh toán",
     minWidth: 170,
     type: "text",
-    isShow: true
+    isShow: true,
   },
   {
     id: "code",
     label: "Mã phương thức thanh toán",
     minWidth: 170,
     type: "text",
-    isShow: true
+    isShow: true,
   },
-  { id: "display", label: "Trạng thái", minWidth: 170, type: "number", isShow: false, format: (value) => value === 1 ? "Hiển thị" : "Không hiển thị", },
-  { id: "createdDate", label: "Ngày tạo", minWidth: 100, type: "text", isShow: false, },
+  {
+    id: "display",
+    label: "Trạng thái",
+    minWidth: 170,
+    type: "number",
+    isShow: false,
+    format: (value) => (value === 1 ? "Hiển thị" : "Không hiển thị"),
+  },
+  {
+    id: "createdDate",
+    label: "Ngày tạo",
+    minWidth: 100,
+    type: "text",
+    isShow: false,
+  },
 ];
 
 const useStyles = makeStyles({
@@ -58,18 +65,18 @@ const useStyles = makeStyles({
   },
   textField: {
     fontWeight: 500,
-    width: '75%'
+    width: "75%",
   },
   button: {
     marginLeft: 10,
     float: "right",
     height: "100%",
-    padding: '14px 21px',
+    padding: "14px 21px",
   },
   wrapper: {
-    display: 'flex',
-    alignItems: 'center'
-  }
+    display: "flex",
+    alignItems: "center",
+  },
 });
 
 export default function Payments() {
@@ -81,7 +88,7 @@ export default function Payments() {
 
   const [openDialog, setOpendialog] = useState(false);
   const [name, setName] = useState("");
-  
+
   const handleChange = (e) => {
     setName(e.target.value);
   };
@@ -152,7 +159,7 @@ export default function Payments() {
     setOpendialog(false);
   };
   useEffect(() => {
-    document.title = "E-Shop Admin | Payments"
+    document.title = "TUTU Admin | Payments";
     getData();
   }, []);
   return (
@@ -164,8 +171,8 @@ export default function Payments() {
             <div className="card__body">
               <Grid container spacing={3}>
                 <Grid item md={6}>
-                <div className={classes.wrapper}>
-                     <TextField
+                  <div className={classes.wrapper}>
+                    <TextField
                       className={classes.textField}
                       id="outlined-basic"
                       label="Tên sản phẩm..."

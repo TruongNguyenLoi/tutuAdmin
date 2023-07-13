@@ -129,7 +129,7 @@ export default function SearchForm({ params }) {
                 getContentAnchorEl: null
               }}
             >
-              <MenuItem value={3} className={classes.text}>
+              <MenuItem value="" className={classes.text}>
                 Tất cả
               </MenuItem>
               <MenuItem value={2} className={classes.text}>

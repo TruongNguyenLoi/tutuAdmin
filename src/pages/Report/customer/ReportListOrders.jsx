@@ -117,7 +117,7 @@ export default function ReportListOrders(props) {
   useTimeout(() => setLoading(false), loading ? 1000 : null);
 
   useEffect(() => {
-    document.title = "E-Shop Admin | Orders";
+    document.title = "TUTU Admin | Orders";
     getData();
   }, [getData]);
   return (
@@ -155,14 +155,14 @@ export default function ReportListOrders(props) {
                   )}
                 </Grid>
                 <Grid item md={12}>
-                    <Link
-                      className="view-list-order"
-                      to="#"
-                      onClick={() => props.history.goBack()}
-                    >
-                      &lt;&lt; Quay lại
-                    </Link>
-                  </Grid>
+                  <Link
+                    className="view-list-order"
+                    to="#"
+                    onClick={() => props.history.goBack()}
+                  >
+                    &lt;&lt; Quay lại
+                  </Link>
+                </Grid>
               </Grid>
             </div>
           </div>

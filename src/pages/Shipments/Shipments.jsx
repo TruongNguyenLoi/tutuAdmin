@@ -7,13 +7,7 @@ import {
   saveItem,
   checkCode,
 } from "services/ShipmentServices";
-import {
-  Button,
-  Grid,
-  makeStyles,
-  Paper,
-  TextField,
-} from "@material-ui/core";
+import { Button, Grid, makeStyles, Paper, TextField } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import Loading from "components/loading/Loading";
 import { toast } from "react-toastify";
@@ -28,13 +22,50 @@ toast.configure({
 });
 
 const columns = [
-  { id: "id", label: "ID", minWidth: 170, type: "text", isShow: true},
-  { id: "type", label: "Loại giao hàng", minWidth: 170, type: "number", isShow: true },
-  { id: "name", label: "Tên Phương thức", minWidth: 170, type: "text", isShow: true},
-  { id: "code", label: "Mã Phương thức", minWidth: 170, type: "text", isShow: true},
-  { id: "fee", label: "Phí ship (VNĐ)", minWidth: 170, type: "number", isShow: true},
-  { id: "display", label: "Trạng thái", minWidth: 170, type: "number", isShow: false, format: (value) => value === 1 ? "Hiển thị" : "Không hiển thị", },
-  { id: "createdDate", label: "Ngày tạo", minWidth: 100, type: "text", isShow: false, },
+  { id: "id", label: "ID", minWidth: 170, type: "text", isShow: true },
+  {
+    id: "type",
+    label: "Loại giao hàng",
+    minWidth: 170,
+    type: "number",
+    isShow: true,
+  },
+  {
+    id: "name",
+    label: "Tên Phương thức",
+    minWidth: 170,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "code",
+    label: "Mã Phương thức",
+    minWidth: 170,
+    type: "text",
+    isShow: true,
+  },
+  {
+    id: "fee",
+    label: "Phí ship (VNĐ)",
+    minWidth: 170,
+    type: "number",
+    isShow: true,
+  },
+  {
+    id: "display",
+    label: "Trạng thái",
+    minWidth: 170,
+    type: "number",
+    isShow: false,
+    format: (value) => (value === 1 ? "Hiển thị" : "Không hiển thị"),
+  },
+  {
+    id: "createdDate",
+    label: "Ngày tạo",
+    minWidth: 100,
+    type: "text",
+    isShow: false,
+  },
 ];
 
 const useStyles = makeStyles({
@@ -49,18 +80,18 @@ const useStyles = makeStyles({
   },
   textField: {
     fontWeight: 500,
-    width: '75%'
+    width: "75%",
   },
   button: {
     marginLeft: 10,
     float: "right",
     height: "100%",
-    padding: '14px 21px',
+    padding: "14px 21px",
   },
   wrapper: {
-    display: 'flex',
-    alignItems: 'center'
-  }
+    display: "flex",
+    alignItems: "center",
+  },
 });
 
 export default function Shipments() {
@@ -72,7 +103,7 @@ export default function Shipments() {
 
   const [openDialog, setOpendialog] = useState(false);
   const [name, setName] = useState("");
-  
+
   const handleChange = (e) => {
     setName(e.target.value);
   };
@@ -143,8 +174,7 @@ export default function Shipments() {
     setOpendialog(false);
   };
   useEffect(() => {
-
-    document.title = "E-Shop Admin | Shipments"
+    document.title = "TUTU Admin | Shipments";
 
     getData();
   }, []);
@@ -157,8 +187,8 @@ export default function Shipments() {
             <div className="card__body">
               <Grid container spacing={3}>
                 <Grid item md={6}>
-                <div className={classes.wrapper}>
-                     <TextField
+                  <div className={classes.wrapper}>
+                    <TextField
                       className={classes.textField}
                       id="outlined-basic"
                       label="Tên sản phẩm..."
@@ -199,7 +229,7 @@ export default function Shipments() {
                     <Loading />
                   ) : (
                     <Paper className={classes.root}>
-                     <TableData
+                      <TableData
                         data={methods}
                         columns={columns}
                         handleDeleteItem={handleDeleteItem}
