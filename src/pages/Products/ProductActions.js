@@ -213,7 +213,7 @@ function ProductActions(props) {
   const handleChangeEditor = (newValue, editor) => {
     setProduct({
       ...product,
-      description: editor.getContent({ format: "HTML" }),
+      description: editor.getContent({ format: "TEXT" }),
     });
   };
 
@@ -419,30 +419,58 @@ function ProductActions(props) {
                       </div>
 
                       <div className="col-12 tiny-editor-margin">
-                        <Editor
-                          initialValue="<p></p>"
-                          apiKey="vazqmmifl5cbvcga3ziko90ekv08tcmitaii5xj4ep17jtpf"
-                          value={product?.description}
-                          init={{
-                            selector: "textarea#default-editor",
-                            height: 400,
-                            menubar: false,
-                            plugins: [
-                              "advlist autolink lists link image charmap print preview anchor",
-                              "searchreplace visualblocks code fullscreen",
-                              "insertdatetime media table paste code help wordcount",
-                            ],
-                            toolbar:
-                              "undo redo | formatselect | " +
-                              "bold italic backcolor | alignleft aligncenter " +
-                              "alignright alignjustify | bullist numlist outdent indent | " +
-                              "link | image |" +
-                              "removeformat | help",
-                            content_style:
-                              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-                          }}
-                          onEditorChange={handleChangeEditor}
-                        />
+                        {title ? (
+                          <Editor
+                            initialValue={product?.description}
+                            apiKey="vazqmmifl5cbvcga3ziko90ekv08tcmitaii5xj4ep17jtpf"
+                            value={product?.description}
+                            init={{
+                              selector: "textarea#default-editor",
+                              height: 400,
+                              menubar: false,
+                              plugins: [
+                                "advlist autolink lists link image charmap print preview anchor",
+                                "searchreplace visualblocks code fullscreen",
+                                "insertdatetime media table paste code help wordcount",
+                              ],
+                              toolbar:
+                                "undo redo | formatselect | " +
+                                "bold italic backcolor | alignleft aligncenter " +
+                                "alignright alignjustify | bullist numlist outdent indent | " +
+                                "link | image |" +
+                                "removeformat | help",
+                              content_style:
+                                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px ",
+                              directionality: "ltr",
+                            }}
+                            onEditorChange={handleChangeEditor}
+                          />
+                        ) : (
+                          <Editor
+                            initialValue="<p></p>"
+                            apiKey="vazqmmifl5cbvcga3ziko90ekv08tcmitaii5xj4ep17jtpf"
+                            value={product?.description}
+                            init={{
+                              selector: "textarea#default-editor",
+                              height: 400,
+                              menubar: false,
+                              plugins: [
+                                "advlist autolink lists link image charmap print preview anchor",
+                                "searchreplace visualblocks code fullscreen",
+                                "insertdatetime media table paste code help wordcount",
+                              ],
+                              toolbar:
+                                "undo redo | formatselect | " +
+                                "bold italic backcolor | alignleft aligncenter " +
+                                "alignright alignjustify | bullist numlist outdent indent | " +
+                                "link | image |" +
+                                "removeformat | help",
+                              content_style:
+                                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                            }}
+                            onEditorChange={handleChangeEditor}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

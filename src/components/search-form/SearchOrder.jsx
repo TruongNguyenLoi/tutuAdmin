@@ -39,9 +39,9 @@ export default function SearchForm({ params }) {
   const history = useHistory();
 
   const [data, setData] = useState({
-      status: params.status ? params.status : 3,
-      last_date: params.last_date ? params.last_date : 0
-  })
+    status: params.status ? params.status : 3,
+    last_date: params.last_date ? params.last_date : 0,
+  });
 
   const handleOnChange = (e) => {
     const value = e.target.value;
@@ -54,17 +54,15 @@ export default function SearchForm({ params }) {
   const handleSubmit = () => {
     const search = {
       ...data,
-    }
-    history.push(
-      `?last_date=${search.last_date}&status=${search.status}`
-    );
+    };
+    history.push(`?last_date=${search.last_date}&status=${search.status}`);
   };
 
   return (
     <>
       <div className={classes.wrapper}>
         <div className={classes.root}>
-        <FormControl fullWidth className={classes.formControl}>
+          <FormControl fullWidth className={classes.formControl}>
             <InputLabel id="demo-simple-select-helper-label">
               Ngày đặt hàng
             </InputLabel>
@@ -78,13 +76,13 @@ export default function SearchForm({ params }) {
               MenuProps={{
                 anchorOrigin: {
                   vertical: "bottom",
-                  horizontal: "left"
+                  horizontal: "left",
                 },
                 transformOrigin: {
                   vertical: "top",
-                  horizontal: "left"
+                  horizontal: "left",
                 },
-                getContentAnchorEl: null
+                getContentAnchorEl: null,
               }}
             >
               <MenuItem value={1} className={classes.text}>
@@ -102,9 +100,7 @@ export default function SearchForm({ params }) {
             </Select>
           </FormControl>
         </div>
-        <div className={classes.root}>
-          
-        </div>
+        <div className={classes.root}></div>
         <div className={classes.root}>
           <FormControl fullWidth className={classes.formControl}>
             <InputLabel id="demo-simple-select-helper-label">
@@ -120,22 +116,22 @@ export default function SearchForm({ params }) {
               MenuProps={{
                 anchorOrigin: {
                   vertical: "bottom",
-                  horizontal: "left"
+                  horizontal: "left",
                 },
                 transformOrigin: {
                   vertical: "top",
-                  horizontal: "left"
+                  horizontal: "left",
                 },
-                getContentAnchorEl: null
+                getContentAnchorEl: null,
               }}
             >
               <MenuItem value="" className={classes.text}>
                 Tất cả
               </MenuItem>
-              <MenuItem value={2} className={classes.text}>
+              <MenuItem value={3} className={classes.text}>
                 Đã hoàn thành
               </MenuItem>
-              <MenuItem value={1} className={classes.text}>
+              <MenuItem value={2} className={classes.text}>
                 Đang giao hàng
               </MenuItem>
               <MenuItem value={0} className={classes.text}>
